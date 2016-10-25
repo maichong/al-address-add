@@ -1,0 +1,47 @@
+<view class="plus-block">
+  <view class="plus-item-block">
+    <input style="padding:0" placeholder="姓名" value="{{name}}" auto-focus="true" catchchange="handleNameChange"/>
+  </view>
+  <view class="plus-item-block">
+    <input placeholder="手机号码" value="{{tel}}" catchchange="handleTelChange"/>
+  </view>
+  <view class="plus-item-block" style="padding:1rem 0;">
+    <picker value="{{provinceIndex}}" range="{{province}}" catchchange="handleProvinceChange">
+      <view>{{province[provinceIndex]}}</view>
+    </picker>
+  </view>
+  <view class="plus-item-block" style="padding:1rem 0;">
+    <picker value="{{cityIndex}}" range="{{city}}" catchchange="handleCityChange">
+      <view>{{city[cityIndex]}}</view>
+    </picker>
+  </view>
+  <view class="plus-item-block" style="padding:1rem 0;">
+    <picker value="{{districtIndex}}" range="{{district}}" catchchange="handleDistrictChange">
+      <view>{{district[districtIndex]}}</view>
+    </picker>
+  </view>
+  <view class="plus-item-block">
+    <input placeholder="详细地址，如街道、楼牌号等" value="{{detail}}" catchchange="handleDetailChange"/>
+  </view>
+  <view class="plus-select-block">
+    <view>
+      <view class="inline-block" catchtap="handleDefaultTap">
+        <block wx:if="{{often}}">
+          <icon type="success" color="rgb(189,5,20)"/>
+        </block>
+        <block wx:else>
+          <icon type="circle" color="gray"/>
+        </block>
+      </view>
+      <view class="plus-select-text">
+        <text>设为默认地址</text>
+      </view>
+    </view>
+  </view>
+  <toast hidden="{{toastHidden}}" catchchange="handleToast">{{toastText}}</toast>
+  <view class="address-btn-block" catchtap="handleSaveTap">
+    <view class="address-btn-view">
+      <input class="address-btn-text" disabled="false" value="保存"/>
+    </view>
+  </view>
+</view>
